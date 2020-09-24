@@ -2,6 +2,14 @@
 session_start();
 $userid=$_SESSION['userid'];
 include ('mysqli_connect.php');
+if ($userid) {
+}else{
+ echo "<script>
+ alert('로그인 정보가 없습니다.다시 로그인해 주세요!')
+</script>";
+ echo "<a href='index.php'>로그인 화면에 접속하는 데 실패하면 클릭하세요~~</a>";
+ header("Refresh:1;url=index.php");
+}
 $xgid=$_GET['id'];
 $sqlb="select qna_id,title,push_time,question,answer,name,admin_name  from  reader_info,qna,admin where qna_id={$xgid} and qna.reader_id=reader_info.reader_id and qna.admin_id=admin.admin_id ;";
 $resb=mysqli_query($dbc,$sqlb);

@@ -3,6 +3,14 @@ session_start();
 $userid=$_SESSION['userid'];
 include ('mysqli_connect.php');
 $readerid=$_GET['id']
+if ($userid) {
+}else{
+ echo "<script>
+ alert('로그인 정보가 없습니다.다시 로그인해 주세요!')
+</script>";
+ echo "<a href='index.php'>로그인 화면에 접속하는 데 실패하면 클릭하세요~~</a>";
+ header("Refresh:1;url=index.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -5,6 +5,14 @@ include ('mysqli_connect.php');
 $sqlb="select * from reader_info where reader_id={$userid}";
 $resb=mysqli_query($dbc,$sqlb);
 $resultb=mysqli_fetch_array($resb);
+if ($userid) {
+}else{
+ echo "<script>
+ alert('로그인 정보가 없습니다.다시 로그인해 주세요!')
+</script>";
+ echo "<a href='index.php'>로그인 화면에 접속하는 데 실패하면 클릭하세요~~</a>";
+ header("Refresh:1;url=index.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
